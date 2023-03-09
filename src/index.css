@@ -1,13 +1,153 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+.BUTTON_EEI {
+background: #3D94F6;
+background-image: -webkit-linear-gradient(top, #3D94F6, #1E62D0);
+background-image: -moz-linear-gradient(top, #3D94F6, #1E62D0);
+background-image: -ms-linear-gradient(top, #3D94F6, #1E62D0);
+background-image: -o-linear-gradient(top, #3D94F6, #1E62D0);
+background-image: -webkit-gradient(to bottom, #3D94F6, #1E62D0);
+-webkit-border-radius: 20px;
+-moz-border-radius: 20px;
+border-radius: 10px;
+color: #FFFFFF;
+font-family: Arial;
+font-size: 20px;
+font-weight: 40;
+padding: 3px;
+-webkit-box-shadow: 1px 1px 20px 0 #000000;
+-moz-box-shadow: 1px 1px 20px 0 #000000;
+box-shadow: 1px 1px 20px 0 #000000;
+text-shadow: 1px 1px 20px #000000;
+border: solid #337FED 1px;
+text-decoration: none;
+display: inline-block;
+cursor: pointer;
+text-align: center;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.BUTTON_EEI:hover {
+border: solid #337FED 1px;
+background: #1E62D0;
+background-image: -webkit-linear-gradient(top, #1E62D0, #3D94F6);
+background-image: -moz-linear-gradient(top, #1E62D0, #3D94F6);
+background-image: -ms-linear-gradient(top, #1E62D0, #3D94F6);
+background-image: -o-linear-gradient(top, #1E62D0, #3D94F6);
+background-image: -webkit-gradient(to bottom, #1E62D0, #3D94F6);
+-webkit-border-radius: 20px;
+-moz-border-radius: 20px;
+border-radius: 10px;
+text-decoration: none;
+}
+.product-card {
+display: flex;
+flex-direction: column;
+width: 300px;
+border: 1px solid #ccc;
+border-radius: 5px;
+padding: 10px;
+margin: 10px;
+background-color: rgb(255, 255, 255); 
+}
+
+.product-card h3 {
+font-size: 1.2rem;
+margin: 10px 0;
+color: #333; /* adiciona uma cor de texto escura */
+}
+
+.product-card p {
+font-size: 1rem;
+margin: 10px 0;
+color: #666; /* adiciona uma cor de texto mais clara */
+}
+
+.product-card button {
+background-color: #00a5cf;
+color: #fff;
+border: none;
+border-radius: 5px;
+padding: 10px;
+cursor: pointer;
+margin-top: auto;
+}
+
+.product-card button:hover {
+background-color: #00718b;
+}
+/* Estilos para o carrinho de compras */
+.cart-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+
+.cart-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.cart-item h4 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.cart-item p {
+  font-size: 1rem;
+  margin: 0;
+  margin-top: 5px;
+  color: #666;
+}
+
+.cart-item button {
+  background-color: #ff4c4c;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.cart-item button:hover {
+  background-color: #d63030;
+}
+
+/* Estilos para o formulário de pagamento */
+.payment-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.payment-form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.payment-form input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.payment-form button {
+  background-color: #00a5cf;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.payment-form button:hover {
+  background-color: #00718b;
 }
