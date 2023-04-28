@@ -4,6 +4,7 @@ module.exports = {
       "^.+\\.css$": "jest-transform-stub",
      
     },
+    coverageReporters: ['text-lcov'],
     testEnvironment: 'jsdom'
   
   };

@@ -7,9 +7,10 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "react-scripts test",
+    "test": "nyc --reporter=lcov react-scripts test",
     "test:e2e": "npx playwright test",
-    "start": "react-scripts start"
+    "start": "react-scripts start",
+    "test:coverage": "jest --coverage --coverageReporters=text-lcov | jest-sonar-reporter"
   },
   "author": "Gabrielle dos Santos Alvim(gabrielle.alvim@hotmail.com)",
   "license": "ISC",
@@ -39,7 +40,9 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.31.2",
+    "coveralls": "^3.1.1",
     "eslint": "^8.39.0",
-    "eslint-plugin-react": "^7.32.2"
+    "eslint-plugin-react": "^7.32.2",
+    "nyc": "^15.1.0"
   }
 }

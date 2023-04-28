@@ -1,14 +1,17 @@
 name: CI
-
 on:
   push:
     branches: 
      - 'main'
   pull_request:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   lint:
-    name: Lint
+    name: Linter
     runs-on: ubuntu-latest
     steps:
     -
@@ -43,17 +46,84 @@ jobs:
       run: npm ci
     -
       name: Install Playwright Browsers
-      run: npx playwright install --with-deps
+      run: |
+        npx playwright install
     - 
       name: Run Playwright tests with coverage
       env:
         CI: true
-      run: npx nyc --reporter=json npx playwright test
+      run: npx playwright test -- --coverage --coverageReporters=text-lcov | tee coverage.lcov
     - 
-      name: Upload coverage report
+      name: Upload coverage report to Codecov
       uses: actions/upload-artifact@v3
-      if: always()
       with:
-        name: coverage-report
-        path: coverage/
-        retention-days: 30
+        name: Integration
+        path: ./playwright-report
+
+  test_unit:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+    steps:
+    -
+      name: Checkout Tests
+      uses: actions/checkout@v3
+    -
+      name: Setup Node v16
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
+    - 
+      name: Install dependencies
+      run: npm ci
+    -
+      name: Run tests with coverage
+      run: npm test --coverage --coverageReporters=text-lcov > coverage.lcov
+    -
+      name: Upload coverage report to Codecov
+      uses: actions/upload-artifact@v3
+      with:
+        name: CoverageUnit
+        path: ./coverage
+
+  sonarcloud:
+    needs: [test_unit, tests_integrations]
+    name: SonarCloud
+    runs-on: ubuntu-latest
+    steps:
+    -
+      name: Checkout
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0 
+    - 
+      name: Install dependencies
+      run: npm ci
+    - 
+      name: Test and coverage
+      uses: actions/download-artifact@v3
+      with:
+        name: CoverageUnit
+        path: ./coverage
+    -
+      name: Test and coverage Unit Tests
+      uses: actions/download-artifact@v3
+      with:
+        name: Integration
+        path: ./playwright-report
+    -
+      name: SonarCloud Scan
+      uses: sonarsource/sonarcloud-github-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+      # env:
+      #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      #   SONAR_PROJECT_KEY: <your-project-key>
+      #   SONAR_PROJECT_NAME: <your-project-name>
+      #   SONAR_PROJECT_VERSION: <your-project-version>
+      #   SONAR_LANGUAGE: <your-project-language>
+      #   # Optional - only needed for non-public projects
+      #   SONAR_HOST_URL: 'https://sonarcloud.io'
+      #   SONAR_SCANNER_OPTS: -Xmx1024m
