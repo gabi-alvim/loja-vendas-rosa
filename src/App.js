@@ -4,7 +4,7 @@ import './App.css';
 
 export function App() {
   const [cart, setCart] = useState([]);
-  const [products, setProducts] = useState([
+  const [products] = useState([
     { name: 'Blusa', price: 50, image: './blusa.png', buttonCy: 'btn-blusa', buttonCr: 'btn-remove-blusa'},
     { name: 'Calça', price: 200, image: './calça.png',  buttonCy: 'btn-calça', buttonCr: 'btn-remove-calça'},
     { name: 'Vestido', price: 300, image: './vestido.png', buttonCY: 'btn-vestido', buttonCr: 'btn-remove-vestido'},
@@ -26,7 +26,7 @@ export function App() {
   return (
     <div className="Cor" style={{backgroundColor: '#FF69B4'}}>
     <div className="App">
-    <div class="container">    
+    <div className="container">    
       <h1>Produtos</h1>
       {products.map((product) => (
         <div key={product.name}>
