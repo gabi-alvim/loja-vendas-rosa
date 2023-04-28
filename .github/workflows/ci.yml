@@ -44,7 +44,7 @@ jobs:
     -
       name: Install Playwright Browsers
       run: npx playwright install --with-deps
-    - 
+    -
       name: Run Playwright tests with coverage
       env:
         CI: true
