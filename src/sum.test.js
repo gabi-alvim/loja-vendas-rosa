@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
-import { render, fireEvent } from '@testing-library/react';
-import { App }  from './App';
+import {  fireEvent } from '@testing-library/react';
 import {expect, test, screen} from '@jest/globals';
 
 describe('App component', () => {
   test('should render products and cart sections', () => {
     function App() {
-      const [products, setProducts] = useState([
+      const [products] = useState([
         
       ])
       expect(products).toBeInTheDocument();
@@ -17,7 +15,7 @@ describe('App component', () => {
 
   test('should add a product to the cart', () => {
     function App() {
-      const [products, setProducts] = useState([
+      const [] = useState([
         
       ])
     const productToAdd = screen.toBeInTheDocument('Blusa');
@@ -35,7 +33,7 @@ describe('App component', () => {
   });
   test('should remove a product from the cart', () => {
     function App() {
-      const [products, setProducts] = useState([
+      const [] = useState([
         
       ])
     const productToAdd = screen.getByText('Blusa');
