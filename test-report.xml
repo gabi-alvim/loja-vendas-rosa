@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
   <file path="C:\Users\gabrielle.alvim\React project\minha-primeira-app\src\tests\sum.test.js">
-    <testCase name="App component should render products and cart sections" duration="0"/>
+    <testCase name="App component should render products and cart sections" duration="1"/>
     <testCase name="App component should add a product to the cart" duration="0"/>
-    <testCase name="App component should remove a product from the cart" duration="1"/>
+    <testCase name="App component should remove a product from the cart" duration="0"/>
   </file>
 </testExecutions>
