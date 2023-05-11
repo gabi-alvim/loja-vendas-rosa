@@ -9,6 +9,7 @@
   "scripts": {
     "test": "nyc --reporter=lcov react-scripts test",
     "test:e2e": "npx playwright test",
+    "teste2e:coverage": "npx playwright test --coverage=lcov --coverage-directory=coverage",
     "start": "react-scripts start",
     "test:coverage": "jest --coverage --coverageReporters=text-lcov | jest-sonar-reporter"
   },
