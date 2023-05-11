@@ -73,12 +73,12 @@
                     {
                       "workerIndex": 0,
                       "status": "passed",
-                      "duration": 1114,
+                      "duration": 987,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2023-05-11T05:13:57.056Z",
+                      "startTime": "2023-05-11T05:18:34.805Z",
                       "attachments": []
                     }
                   ],
@@ -105,12 +105,12 @@
                     {
                       "workerIndex": 1,
                       "status": "passed",
-                      "duration": 1066,
+                      "duration": 994,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2023-05-11T05:13:57.060Z",
+                      "startTime": "2023-05-11T05:18:34.804Z",
                       "attachments": []
                     }
                   ],
