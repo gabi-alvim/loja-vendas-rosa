@@ -83,7 +83,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: CoverageUnit
-        path: ./coverage
+        path: ./test-report.xml
 
   sonarcloud:
     needs: [test_unit, tests_integrations]
@@ -103,7 +103,7 @@ jobs:
       uses: actions/download-artifact@v3
       with:
         name: CoverageUnit
-        path: ./minha-primeira-app/test-report.xml
+        path: /test-report.xml
     -
       name: Test and coverage Unit Tests
       uses: actions/download-artifact@v3
