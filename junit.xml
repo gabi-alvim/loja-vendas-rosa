@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="3" failures="0" errors="0" time="1.706">
+  <testsuite name="App component" errors="0" failures="0" skipped="0" timestamp="2023-05-17T22:38:59" time="1.463" tests="3">
+    <testcase classname="App component should render products and cart sections" name="App component should render products and cart sections" time="0.001">
+    </testcase>
+    <testcase classname="App component should add a product to the cart" name="App component should add a product to the cart" time="0">
+    </testcase>
+    <testcase classname="App component should remove a product from the cart" name="App component should remove a product from the cart" time="0.001">
+    </testcase>
+  </testsuite>
+</testsuites>
