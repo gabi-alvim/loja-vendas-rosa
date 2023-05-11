@@ -52,13 +52,13 @@ jobs:
       name: Run Playwright tests with coverage
       env:
         CI: true
-      run: 
+      run: npm run teste2e:coverage 
     - 
       name: Upload coverage report to Codecov
       uses: actions/upload-artifact@v3
       with:
         name: Integration
-        path: ./playwright-report
+        path: ./results.json
 
   test_unit:
     name: Unit Tests
