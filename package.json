@@ -12,7 +12,8 @@
     "start": "react-scripts start",
     "test:coverage": "jest --coverage --coverageReporters=text-lcov | jest-sonar-reporter",
     "coverage": "npx playwright test && jest --coverage && jest-sonar-reporter",
-    "test-sonar": "jest --coverage --testResultsProcessor jest-sonar-reporter"
+    "test-sonar": "jest --coverage --testResultsProcessor jest-sonar-reporter",
+    "teste2e:coverage": "nyc playwright test"
   },
   "author": "Gabrielle dos Santos Alvim(gabrielle.alvim@hotmail.com)",
   "license": "ISC",
@@ -20,6 +21,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
+    "playwright-test-coverage": "^1.2.12",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-script": "^2.0.5",
@@ -40,7 +42,8 @@
     ]
   },
   "devDependencies": {
-    "@playwright/test": "^1.31.2",
+    "@playwright/test": "^1.33.0",
+    "babel-plugin-istanbul": "^6.1.1",
     "coveralls": "^3.1.1",
     "eslint": "^8.39.0",
     "eslint-plugin-react": "^7.32.2",
@@ -50,6 +53,7 @@
     "jest-sonar": "^0.2.16",
     "jest-sonar-reporter": "^2.0.0",
     "jest-transform-stub": "^2.0.0",
+    "lcov-summary": "^1.0.1",
     "nyc": "^15.1.0"
   }
 }

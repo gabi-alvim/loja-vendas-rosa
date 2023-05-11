@@ -52,7 +52,7 @@ jobs:
       name: Run Playwright tests with coverage
       env:
         CI: true
-      run: npx playwright test -- --coverage --coverageReporters=text-lcov | tee coverage.lcov
+      run: 
     - 
       name: Upload coverage report to Codecov
       uses: actions/upload-artifact@v3
@@ -77,13 +77,13 @@ jobs:
       run: npm ci
     -
       name: Run tests with coverage
-      run: npm run test-sonar
+      run: npm run coverage
     -
       name: Upload coverage report to Codecov
       uses: actions/upload-artifact@v3
       with:
         name: CoverageUnit
-        path: ./test-report.xml
+        path: ./coverage
 
   sonarcloud:
     needs: [test_unit, tests_integrations]
