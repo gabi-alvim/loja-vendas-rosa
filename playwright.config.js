@@ -71,7 +71,7 @@ module.exports = defineConfig({
   ],
 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */
-  outputDir: 'test-results/',
+ 
 
   /* Run your local dev server before starting the tests */
   // webServer: {
