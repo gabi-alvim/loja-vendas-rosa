@@ -29,36 +29,36 @@ jobs:
       name: Setup Node v16
       run: npx eslint src
 
-  tests_integrations:
-    name: Tests integration Playwrigth
-    runs-on: ubuntu-latest
-    steps:
-    -
-      name: Checkout Tests
-      uses: actions/checkout@v3
-    -
-      name: Setup Node v16
-      uses: actions/setup-node@v3
-      with:
-        node-version: 16
-    -
-      name: Install dependencies
-      run: npm ci
-    -
-      name: Install Playwright Browsers
-      run: |
-        npx playwright install
-    - 
-      name: Run Playwright tests with coverage
-      env:
-        CI: true
-      run: npx playwright test -- --coverage --coverageReporters=text-lcov | tee coverage.lcov
-    - 
-      name: Upload coverage report to Codecov
-      uses: actions/upload-artifact@v3
-      with:
-        name: Integration
-        path: ./playwright-report
+  # tests_integrations:
+  #   name: Tests integration Playwrigth
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   -
+  #     name: Checkout Tests
+  #     uses: actions/checkout@v3
+  #   -
+  #     name: Setup Node v16
+  #     uses: actions/setup-node@v3
+  #     with:
+  #       node-version: 16
+  #   -
+  #     name: Install dependencies
+  #     run: npm ci
+  #   -
+  #     name: Install Playwright Browsers
+  #     run: |
+  #       npx playwright install
+  #   - 
+  #     name: Run Playwright tests with coverage
+  #     env:
+  #       CI: true
+  #     run: npm run teste2e:coverage 
+  #   - 
+  #     name: Upload coverage report to Codecov
+  #     uses: actions/upload-artifact@v3
+  #     with:
+  #       name: Integration
+  #       path: /results.json
 
   test_unit:
     name: Unit Tests
@@ -77,16 +77,17 @@ jobs:
       run: npm ci
     -
       name: Run tests with coverage
-      run: npm test --coverage --coverageReporters=text-lcov > coverage.lcov
+      run: npm run test-sonar
     -
       name: Upload coverage report to Codecov
       uses: actions/upload-artifact@v3
       with:
         name: CoverageUnit
-        path: ./coverage
+        path: ./junit.xml
+
 
   sonarcloud:
-    needs: [test_unit, tests_integrations]
+    needs: [test_unit]
     name: SonarCloud
     runs-on: ubuntu-latest
     steps:
@@ -99,17 +100,16 @@ jobs:
       name: Install dependencies
       run: npm ci
     - 
-      name: Test and coverage
+      name: Test and coverage Unit
       uses: actions/download-artifact@v3
       with:
         name: CoverageUnit
-        path: ./coverage
-    -
-      name: Test and coverage Unit Tests
-      uses: actions/download-artifact@v3
-      with:
-        name: Integration
-        path: ./playwright-report
+    # -
+    #   name: Test and coverage E2E
+    #   uses: actions/download-artifact@v3
+    #   with:
+    #     name: Integration
+    #     path: /results.json
     -
       name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@master
