@@ -13,6 +13,9 @@ module.exports = {
     ignorePatterns: [
         "sum.test.js",
         "index.js",
+        "playwrigth.config.js",
+        "tests",
+        ""
     ],
     plugins: [
       'react',
