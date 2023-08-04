@@ -26,5 +26,4 @@ yarn-error.log*
 /playwright/.cache/
 /playwright/.cache/
 /playwright-report/
-/.nyc_output/
-/coverage/
+.nyc_output
